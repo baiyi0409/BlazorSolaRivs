@@ -1,0 +1,285 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>BlazorSolaRivs</PageTitle>
+
+
+<MApp>
+    <div class="page">
+        <div class="sidebar box">
+            <div class="sidebar-logo">
+                <span>@logo</span>
+            </div>
+            <div class="sidebar-menu">
+                <MList Routable Nav Dense>
+                    @foreach (var navItem in _navItems)
+                    {
+                        @* 如果列表包含子项,则选用嵌套列表  *@
+                        if (navItem.Children?.Any() is true)
+                        {
+                            <MListGroup NoAction Group="@navItem.Group">
+                                <ActivatorContent>
+                                    <MListItemIcon>
+                                        <MIcon>@navItem.Icon</MIcon>
+                                    </MListItemIcon>
+                                    <MListItemContent>
+                                        <MListItemTitle>@navItem.Name</MListItemTitle>
+                                    </MListItemContent>
+                                </ActivatorContent>
+                                <ChildContent>
+                                    @foreach (var subNavItem in navItem.Children)
+                                    {
+                                        <MListItem Href="@subNavItem.Url"
+                                                   ActiveClass="primary--text"
+                                                   Exact="@subNavItem.Exact"
+                                                   MatchPattern="@subNavItem.MatchPattern">
+                                            <MListItemContent>
+                                                <MListItemTitle>@subNavItem.Name</MListItemTitle>
+                                            </MListItemContent>
+                                        </MListItem>
+                                    }
+                                </ChildContent>
+                            </MListGroup>
+                        }
+                        else
+                        {
+                            <MListItem Href="@navItem.Url"
+                                       ActiveClass="primary--text"
+                                       Exact="@navItem.Exact"
+                                       MatchPattern="@navItem.MatchPattern">
+                                <MListItemIcon>
+                                    <MIcon>@navItem.Icon</MIcon>
+                                </MListItemIcon>
+                                <MListItemContent>
+                                    <MListItemTitle>@navItem.Name</MListItemTitle>
+                                </MListItemContent>
+                            </MListItem>
+                        }
+                    }
+                </MList>
+            </div>
+            <div class="sidebar-button-container">
+                <MButton LeftIconName="mdi-logout" Depressed Text>
+                    Log out
+                </MButton>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="main-left">
+                <div class="main-left-title">
+                    <MButton class="main-left-title-button white--text" 
+                             Elevation=0
+                             Small
+                             Color="#1d1d1d"
+                             Fab >
+                        <MIcon Dark>
+                            mdi-cloud-upload
+                        </MIcon>
+                    </MButton>
+                    <MProgressLinear Value="50" Color="#98afac" BackgroundColor="#e2e2e2" Height="8">
+                    </MProgressLinear>
+                    <div class="main-left-title-player">
+                        <span>21:18</span>
+                        <span>/</span>
+                        <span>40:17</span>
+                    </div>
+                </div>
+                <div class="main-left-chart box">
+                    <div class="main-left-chart-title">
+                        <div class="chart-title-top">
+                            <span>Your Activity</span>
+                            <MButton Height="20" class="ml-2 corn"
+                                     Outlined
+                                     Rounded
+                                     Color="#8ca8a4">
+                                     14%
+                            </MButton>
+                        </div>
+                        <div class="chart-title-sub">
+                            <span>Progress increased this week</span>
+                        </div>
+                    </div>
+                    <div class="main-left-chart-col">
+                        <MECharts Width="@("100%")"
+                                  Height="260"
+                                  Style="margin: 0 auto"
+                                  Option="_option">
+                        </MECharts>
+                    </div>
+                </div>
+                <div class="main-left-display box">
+                    <div class="display-title">
+                        <span>Pro Plan: Scientist</span>
+                        <span>View all</span>
+                    </div>
+                    <div class="display-content">
+                        <ul class="content-list">
+                            <li>Premium content</li>
+                            <li>Advanced level</li>
+                            <li>Access to expert</li>
+                        </ul>
+                    </div>
+                    <div class="display-button">
+                        <MButton Height="40" Elevation=0 Tile class="white--text"
+                                 Color="#1d1d1d">
+                            Upgrade Plan
+                        </MButton>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-right">
+                <div class="main-right-user box">
+                    <div class="user-img"></div>
+                    <div class="user-info">
+                        <div class="user-info-title">
+                            <span>Principles of Biochemistry</span>
+                            <span>Biochemistry is the study of molecules processes</span>
+                        </div>
+                        <MButton Height="30" class="ma-0 corn"
+                                 Outlined
+                                 Rounded
+                                 Color="#487e77">
+                            74h
+                        </MButton>
+                    </div>
+                    <div class="user-box">
+                        <div class="user-box-sub">
+                            <div class="userbox-icon"></div>
+                            <div class="userbox-content">
+                                <span>Level</span>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+
+                        <div class="user-box-sub">
+                            <div class="userbox-icon"></div>
+                            <div class="userbox-content">
+                                <span>Start</span>
+                                <span>19.03.23</span>
+                            </div>
+                        </div>
+
+                        <div class="user-box-sub">
+                            <div class="userbox-icon"></div>
+                            <div class="userbox-content">
+                                <span>Classes</span>
+                                <span>34</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-right-stats">
+                    <div class="right-state-course box">
+                        <div class="course-title">
+                            <span>MyCourse</span>
+                            <span>...</span>
+                        </div>
+                        <div class="course-progress">
+                            <div class="progress-width">
+                                <span>Paramedisc</span>
+                                <MProgressLinear Value="80" Color="#c89799" BackgroundColor="#e1e1e0" Height="8">
+                                </MProgressLinear>
+                            </div>
+                            <div class="progress-width">
+                                <span>Emergency</span>
+                                <MProgressLinear Value="25" Color="#99afac" BackgroundColor="#e1e1e0" Height="8">
+                                </MProgressLinear>
+                            </div>
+                        </div>
+                        <div class="course-button">
+                            <MButton Height="35" Elevation=0 Tile class="white--text"
+                                     Color="#1d1d1d">
+                                Full Statistics
+                            </MButton>
+                            <MButton Height="35" Elevation=0 Tile Outlined
+                                     Color="#1d1d1d">
+                                Explore Courses
+                            </MButton>
+                        </div>
+                    </div>
+                    <div class="right-state-user box">
+                        <MAvatar>
+                            <MImage Src="https://cdn.masastack.com/stack/images/website/masa-blazor/jack.png" Alt="Jack"></MImage>
+                        </MAvatar>
+                        <span>Dr. Hilda Adams</span>
+                        <span>Scientist</span>
+                    </div>
+                </div>
+                <div class="main-right-list box">
+                    <MList Flat
+                           Subheader
+                           ThreeLine>
+
+                        <MListItemGroup @bind-Values="settings"
+                                        Multiple
+                                        ActiveClass="">
+                            <MListItem>
+                                <ItemContent>
+                                    <MListItemAvatar>
+                                        <MIcon Class="grey lighten-1"
+                                               Dark>
+                                            mdi-folder
+                                        </MIcon>
+                                    </MListItemAvatar>
+
+                                    <MListItemContent>
+                                        <MListItemTitle>Notifications</MListItemTitle>
+                                    </MListItemContent>
+                                </ItemContent>
+                            </MListItem>
+
+                            <MListItem>
+                                <ItemContent>
+                                    <MListItemAvatar>
+                                        <MIcon Class="grey lighten-1"
+                                               Dark>
+                                            mdi-folder
+                                        </MIcon>
+                                    </MListItemAvatar>
+
+                                    <MListItemContent>
+                                        <MListItemTitle>Sound</MListItemTitle>
+                                    </MListItemContent>
+                                </ItemContent>
+                            </MListItem>
+
+                            <MListItem>
+                                <ItemContent>
+                                    <MListItemAvatar>
+                                        <MIcon Class="grey lighten-1"
+                                               Dark>
+                                            mdi-folder
+                                        </MIcon>
+                                    </MListItemAvatar>
+
+                                    <MListItemContent>
+                                        <MListItemTitle>Auto-add widgets</MListItemTitle>
+                                    </MListItemContent>
+                                </ItemContent>
+                            </MListItem>
+                        </MListItemGroup>
+                    </MList>
+                </div>
+            </div>
+        </div>
+    </div>
+</MApp>
+
+<style>
+    .course-button button {
+        width:50%;
+    }
+
+    .course-button button .m-btn__content {
+        font-size:12px;
+    }
+
+    .m-list-item{
+        align-items: center;
+        gap:10px;
+    }
+</style>
+
+
+

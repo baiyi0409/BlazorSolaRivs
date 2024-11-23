@@ -1,0 +1,284 @@
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    gap: 20px;
+    height: 100vh;
+    width: 100vw;
+    background-color: #ced4ce;
+    padding: 20px;
+}
+
+.corn {
+    border-radius: 10px;
+}
+
+.box {
+    background-color: #ffffff;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.sidebar {
+    display:flex;
+    flex-direction:column;
+    width: 20%;
+    height:calc(100vh - 40px);
+}
+
+.sidebar-logo {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.sidebar-logo > span {
+    font-size:20px;
+}
+
+.sidebar-menu {
+    margin-top: 10px;
+    flex-grow:1;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.sidebar-button-container {
+    margin-top:auto;
+    height: 50px;
+    width:100%
+}
+
+
+.main {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.main-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.main-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-left-title {
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 20px;
+    gap:10px;
+}
+
+.main-left-title-button {
+    color:white;
+}
+
+.main-left-title-player {
+    display:flex;
+    flex-direction:row;
+}
+
+.main-left-chart {
+    display:flex;
+    flex-direction:column;
+    height: 45%;
+}
+
+.main-left-chart-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-title-top {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    flex-wrap:nowrap;
+}
+
+
+.main-left-display {
+    display:flex;
+    flex-direction:column;
+    height: 45%;
+    gap:10px;
+}
+
+.display-title {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.content-list {
+    list-style-type: circle;
+    font-size:18px;
+}
+
+.display-content {
+    flex-grow: 1; /* 让这个 div 占据剩余的全部空间 */
+}
+
+
+.display-title span:first-child {
+    font-size:20px;
+    font-weight:600;
+}
+
+.display-title span:nth-child(2) {
+    border: 1px solid #808080;
+    padding:3px 10px;
+}
+
+.main-right-user {
+    display: flex;
+    flex-direction: column;
+    height: 45%;
+    gap: 10px;
+}
+
+.user-img {
+    background-color: #e2e6db;
+    height:50%;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.user-info-title {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* 隐藏溢出的内容 */
+    text-overflow: ellipsis; /* 显示省略号 */
+    white-space: nowrap; /* 防止文本换行 */
+}
+
+.user-box {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.user-box-sub {
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+
+.userbox-content {
+    display:flex;
+    flex-direction:column;
+}
+
+.userbox-icon {
+    width: 50px;
+    height: 50px;
+}
+
+
+.user-box-sub:nth-child(1) .userbox-icon {
+    background-color: #e9e9e9;
+}
+
+.user-box-sub:nth-child(2) .userbox-icon {
+    background-color: #f8edea;
+}
+
+.user-box-sub:nth-child(3) .userbox-icon {
+    background-color: #fbeee5;
+}
+
+
+.main-right-stats {
+    display: flex;
+    height: 25%;
+    gap: 20px;
+}
+
+.main-right-list {
+    height: 30%;
+}
+
+.right-state-course {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    gap: 10px;
+}
+
+.course-title {
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.course-progress {
+    display: flex;
+    flex-direction: column;
+}
+
+.progress-width {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.course-button {
+    display:flex;
+    width:100%;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.course-button > span {
+    border: 1px solid #808080;
+    padding: 3px 10px;
+    overflow: hidden; /* 隐藏溢出的内容 */
+    text-overflow: ellipsis; /* 显示省略号 */
+    white-space: nowrap; /* 防止文本换行 */
+}
+
+.progress-width > * {
+    width: 50%;
+}
+
+.right-state-user {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    width: 30%
+}
+
+.main-right-list {
+    display:flex;
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
